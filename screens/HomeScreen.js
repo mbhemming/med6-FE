@@ -44,7 +44,7 @@ export default class HomeScreen extends React.Component {
       try{
           await SecureStore.setItemAsync('secure_token',tok);
           const token2 = await SecureStore.getItemAsync('secure_token');
-          debugger;
+          //debugger;
       }
       catch(e){
           console.log(e.message)
@@ -65,7 +65,7 @@ export default class HomeScreen extends React.Component {
 })
   .then((res) => {
     console.log(res);
-    debugger;
+    //debugger;
     this._store_token(res.data.token);
     //return await SecureStore.setItemAsync('secure_token',tok);
     return 1;
