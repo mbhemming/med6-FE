@@ -11,6 +11,8 @@ import {
   ListView
 } from "react-native";
 
+import {SecureStore} from 'expo';
+
 import axios from "axios";
 
 import { MonoText } from "../components/StyledText";
@@ -27,7 +29,8 @@ const logo_container_height = dims.height / 2.5;
 const logo_width = 200;
 const logo_height = 200;
 
-const base_url = "localhost:3000"
+//const BASE_URL = "http://localhost:3000";
+const BASE_URL = "http://garagan-meditation.appspot.com";
 
 export default class HomeScreen extends React.Component {
 
@@ -37,32 +40,50 @@ export default class HomeScreen extends React.Component {
     header: null
   };
 
-  componentWillMount(){
+  async _store_token(tok){
+      try{
+          await SecureStore.setItemAsync('secure_token',tok);
+          const token2 = await SecureStore.getItemAsync('secure_token');
+          debugger;
+      }
+      catch(e){
+          console.log(e.message)
+      }
 
-     debugger;
-  //
-  //    axios.get('http://localhost:3000/meds')
-  // .then(function (response) {
-  //   console.log(response);
-  //   debugger;
-  // })
-  // .catch(function (error) {
-  //   console.log(error);
-  //   debugger;
-  // });
+
+  }
+
+  componentWillMount(){
 
      axios({
   method: 'post',
-  url: 'http://localhost:3000/users/login',
+  url: BASE_URL + '/users/login',
   data: {
       email: "email1@mail.com",
     password: "passpass"
   }
 })
-  .then(function (res) {
-    //console.log(res);
-     
-  })
+  .then((res) => {
+    console.log(res);
+    debugger;
+    this._store_token(res.data.token);
+    //return await SecureStore.setItemAsync('secure_token',tok);
+    return 1;
+
+
+})
+
+
+// .then(async function (res) {
+//   //console.log(res);
+//
+//   _//store_token(res.token);
+//   const token = await SecureStore.getItemAsync('secure_token');
+//   debuger;
+//   return token;
+//
+//
+// })
   .catch(function (error) {
     //console.log(error);
   });
