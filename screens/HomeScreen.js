@@ -32,7 +32,7 @@ const logo_height = 200;
 //const BASE_URL = "http://localhost:3000";
 const BASE_URL = "http://garagan-meditation.appspot.com";
 axios.defaults.baseURL = "http://garagan-meditation.appspot.com";
-//axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+
 
 export default class HomeScreen extends React.Component {
 
@@ -68,7 +68,10 @@ export default class HomeScreen extends React.Component {
   .then((res) => {
     console.log(res);
     debugger;
-    this._store_token(res.data.token);
+
+    axios.defaults.headers.common['Authorization'] = "Bearer " + res.data.token;
+
+    //this._store_token(res.data.token);  Don't need this now that I'm setting header globally
     //return await SecureStore.setItemAsync('secure_token',tok);
     return 1;
 
