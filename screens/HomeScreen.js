@@ -31,6 +31,8 @@ const logo_height = 200;
 
 //const BASE_URL = "http://localhost:3000";
 const BASE_URL = "http://garagan-meditation.appspot.com";
+axios.defaults.baseURL = "http://garagan-meditation.appspot.com";
+//axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 
 export default class HomeScreen extends React.Component {
 
@@ -57,7 +59,7 @@ export default class HomeScreen extends React.Component {
 
      axios({
   method: 'post',
-  url: BASE_URL + '/users/login',
+  url: '/users/login',
   data: {
       email: "email1@mail.com",
     password: "passpass"
@@ -65,7 +67,7 @@ export default class HomeScreen extends React.Component {
 })
   .then((res) => {
     console.log(res);
-    //debugger;
+    debugger;
     this._store_token(res.data.token);
     //return await SecureStore.setItemAsync('secure_token',tok);
     return 1;
