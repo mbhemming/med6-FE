@@ -33,7 +33,7 @@ export default class FavMedScreen extends React.Component {
             <View style = {styles.container}>
             	<TitleHeader 
                 title = {'Favorite Meditations NEED TO MAKE A ROUTE LATER TO HAVE THIS WORK. USES user MODEL'}
-                fontSize = {30}
+                fontSize = {18}
                 />
             </View>
             

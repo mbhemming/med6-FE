@@ -67,7 +67,7 @@ export default class HomeScreen extends React.Component {
 })
   .then((res) => {
     console.log(res);
-    debugger;
+    //debugger;
 
     axios.defaults.headers.common['Authorization'] = "Bearer " + res.data.token;
 
