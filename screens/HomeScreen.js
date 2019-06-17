@@ -31,6 +31,8 @@ const logo_height = 200;
 
 //const BASE_URL = "http://localhost:3000";
 const BASE_URL = "http://garagan-meditation.appspot.com";
+axios.defaults.baseURL = "http://garagan-meditation.appspot.com";
+
 
 export default class HomeScreen extends React.Component {
 
@@ -44,7 +46,7 @@ export default class HomeScreen extends React.Component {
       try{
           await SecureStore.setItemAsync('secure_token',tok);
           const token2 = await SecureStore.getItemAsync('secure_token');
-          debugger;
+          //debugger;
       }
       catch(e){
           console.log(e.message)
@@ -54,39 +56,57 @@ export default class HomeScreen extends React.Component {
   }
 
   componentWillMount(){
+    //debugger;
 
-     axios({
-  method: 'post',
-  url: BASE_URL + '/users/login',
-  data: {
-      email: "email1@mail.com",
-    password: "passpass"
-  }
-})
-  .then((res) => {
-    console.log(res);
-    debugger;
-    this._store_token(res.data.token);
-    //return await SecureStore.setItemAsync('secure_token',tok);
-    return 1;
+    axios.defaults.headers.common['Authorization'] = "Bearer " + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Y2Q0NThmNjViNjE2OTZlZjk1ZGMwMmMiLCJpYXQiOjE1NTk1NzI5MDB9.SbRf-giNfYERV1N9C_N4eB59LVjFpR2H1eUBGqKjUGY';  /// remove later
+    
+
+//      axios({
+//   method: 'post',
+//   url: '/users/login',
+//   data: {
+//       email: "email1@mail.com",
+//     password: "passpass"
+//   }
+// })
+//   .then((res) => {
+//     console.log(res);
+//     //debugger;
+
+//     axios.defaults.headers.common['Authorization'] = "Bearer " + res.data.token;
+
+//     //this._store_token(res.data.token);  Don't need this now that I'm setting header globally
+//     //return await SecureStore.setItemAsync('secure_token',tok);
+//     return 1;
 
 
-})
+// })
+//   .catch(function (error) {
+//     debugger;
+//     console.log(error);
+//   });
+
+
+
+
+
+
+
 
 
 // .then(async function (res) {
 //   //console.log(res);
-//
+
 //   _//store_token(res.token);
 //   const token = await SecureStore.getItemAsync('secure_token');
 //   debuger;
 //   return token;
-//
-//
+
+
 // })
-  .catch(function (error) {
-    //console.log(error);
-  });
+//   .catch(function (error) {
+//     //console.log(error);
+//   });
 
 
   }
