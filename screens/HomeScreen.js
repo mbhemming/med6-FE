@@ -57,30 +57,41 @@ export default class HomeScreen extends React.Component {
 
   componentWillMount(){
     //debugger;
-     axios({
-  method: 'post',
-  url: '/users/login',
-  data: {
-      email: "email1@mail.com",
-    password: "passpass"
-  }
-})
-  .then((res) => {
-    console.log(res);
-    //debugger;
 
-    axios.defaults.headers.common['Authorization'] = "Bearer " + res.data.token;
+    axios.defaults.headers.common['Authorization'] = "Bearer " + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Y2Q0NThmNjViNjE2OTZlZjk1ZGMwMmMiLCJpYXQiOjE1NTk1NzI5MDB9.SbRf-giNfYERV1N9C_N4eB59LVjFpR2H1eUBGqKjUGY';  /// remove later
+    
 
-    //this._store_token(res.data.token);  Don't need this now that I'm setting header globally
-    //return await SecureStore.setItemAsync('secure_token',tok);
-    return 1;
+//      axios({
+//   method: 'post',
+//   url: '/users/login',
+//   data: {
+//       email: "email1@mail.com",
+//     password: "passpass"
+//   }
+// })
+//   .then((res) => {
+//     console.log(res);
+//     //debugger;
+
+//     axios.defaults.headers.common['Authorization'] = "Bearer " + res.data.token;
+
+//     //this._store_token(res.data.token);  Don't need this now that I'm setting header globally
+//     //return await SecureStore.setItemAsync('secure_token',tok);
+//     return 1;
 
 
-})
-  .catch(function (error) {
-    debugger;
-    console.log(error);
-  });
+// })
+//   .catch(function (error) {
+//     debugger;
+//     console.log(error);
+//   });
+
+
+
+
+
+
+
 
 
 // .then(async function (res) {

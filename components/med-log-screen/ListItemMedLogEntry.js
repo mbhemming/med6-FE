@@ -7,7 +7,7 @@ import { Text, View, Image, Dimensions, StyleSheet, Button } from 'react-native'
 
 const dims = Dimensions.get("window");
 
-const row_height= 30;
+const row_height= 40;
 
 class ListItemMedLogEntry extends React.Component {
     constructor(props){
@@ -34,7 +34,7 @@ class ListItemMedLogEntry extends React.Component {
         return(
             <View style={styles.container}>
                 <Text style={{fontSize: 18}} >{this.props.name}</Text>
-                <Text style={{fontSize: 18}} >{this.props.n_times_completed}</Text>
+                <Text style={{fontSize: 14}} >Completed {this.props.n_times_completed} times</Text>
 
             </View>
         );
