@@ -56,7 +56,7 @@ export default class HomeScreen extends React.Component {
   }
 
   componentWillMount(){
-
+    //debugger;
      axios({
   method: 'post',
   url: '/users/login',
@@ -77,21 +77,25 @@ export default class HomeScreen extends React.Component {
 
 
 })
+  .catch(function (error) {
+    debugger;
+    console.log(error);
+  });
 
 
 // .then(async function (res) {
 //   //console.log(res);
-//
+
 //   _//store_token(res.token);
 //   const token = await SecureStore.getItemAsync('secure_token');
 //   debuger;
 //   return token;
-//
-//
+
+
 // })
-  .catch(function (error) {
-    //console.log(error);
-  });
+//   .catch(function (error) {
+//     //console.log(error);
+//   });
 
 
   }

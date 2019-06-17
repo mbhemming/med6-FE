@@ -26,7 +26,7 @@ export default class FeedbackScreen extends React.Component {
     text: this.state.text
   })
   .then(function (response) {
-    //debugger;
+    debugger;
     console.log(response);
   })
   .catch(function (error) {
@@ -37,7 +37,7 @@ export default class FeedbackScreen extends React.Component {
   render() {
     /* Go ahead and delete ExpoConfigView and replace it with your
      * content, we just wanted to give you a quick view of your config */
-     debugger;
+     //debugger;
     return (
     	<View style = {styles.container}>
     		<TitleHeader title = {'Feedback: What would you like changed?'} 
