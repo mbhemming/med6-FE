@@ -8,7 +8,9 @@ import { View, Image, Dimensions, StyleSheet, Text } from 'react-native';
 
 import BrandHeader from './BrandHeader'
 
-const TITLE_HEIGHT = 100;
+import colors from './../../assets/colors/colors.js'
+
+const TITLE_HEIGHT = 75;
 
 const dims = Dimensions.get("window");
 
@@ -23,7 +25,7 @@ export default class TitleHeader extends React.Component {
               <BrandHeader/>
 
               <View style ={styles.text_contain} >
-                <Text style = {{fontSize: fontSize, flex: 1, flexWrap: 'wrap'}}> {title} </Text>
+                <Text style = {{fontSize: fontSize, flex: 1, flexWrap: 'wrap', color: colors.primary}}> {title} </Text>
               </View>
             </View>
           );

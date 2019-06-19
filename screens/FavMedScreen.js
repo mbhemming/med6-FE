@@ -4,6 +4,7 @@ const axios = require('axios');
 
 //import BrandHeader from './../components/shared/BrandHeader.js' 
 import TitleHeader from './../components/shared/TitleHeader.js' 
+import ListItemTextLeftAndRight from './../components/ListItemTextLeftAndRight.js'
 
 import { Text } from 'react-native';
 
@@ -78,7 +79,7 @@ export default class FavMedScreen extends React.Component {
             
             <FlatList
               data={this.state.fav_meds}
-              renderItem={({item}) => <Text>{item.name}</Text>}
+              renderItem={({item}) =>  <ListItemTextLeftAndRight left = {item.name} right = {item.duration + " minutes"} />}
             />
             </View>
             

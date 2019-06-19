@@ -1,4 +1,6 @@
-
+/*
+    Renders some text to the left and other text to the right. Used for ListViews
+*/
 import React from 'react';
 import { Text, View, Image, Dimensions, StyleSheet, Button } from 'react-native';
 
@@ -9,7 +11,7 @@ const dims = Dimensions.get("window");
 
 const row_height= 40;
 
-class ListItemMedLogEntry extends React.Component {
+class ListItemTextLeftAndRight extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -33,8 +35,8 @@ class ListItemMedLogEntry extends React.Component {
 
         return(
             <View style={styles.container}>
-                <Text style={{fontSize: 18}} >{this.props.name}</Text>
-                <Text style={{fontSize: 14}} >Completed {this.props.n_times_completed} times</Text>
+                <Text style={{fontSize: 18}} >{this.props.left}</Text>
+                <Text style={{fontSize: 14}} >{this.props.right}</Text>
 
             </View>
         );
@@ -61,4 +63,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default ListItemMedLogEntry;
+export default ListItemTextLeftAndRight;
