@@ -73,7 +73,7 @@ export default class MedLogScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     width: dims.width, 
-    height: dims.height-5, 
+    height: dims.height, 
     //flexDirection: 'column', 
     //flex: 1,
     //justifyContent: 'space-around',

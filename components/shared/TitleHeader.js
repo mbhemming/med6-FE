@@ -22,7 +22,7 @@ export default class TitleHeader extends React.Component {
 
               <BrandHeader/>
 
-              <View style ={{width: dims.width, height: TITLE_HEIGHT, justifyContent: 'center', alignItems: 'center'}} >
+              <View style ={styles.text_contain} >
                 <Text style = {{fontSize: fontSize, flex: 1, flexWrap: 'wrap'}}> {title} </Text>
               </View>
             </View>
@@ -35,11 +35,18 @@ export default class TitleHeader extends React.Component {
 const styles = StyleSheet.create({
   container: {
     width: dims.width, 
-    height: 200, 
+    height: 180, 
     flexDirection: 'column', 
     //flex: 1,
     justifyContent: 'space-between',
     borderBottomWidth:1
   },
+  text_contain: {
+    width: dims.width, 
+    height: TITLE_HEIGHT, 
+    justifyContent: 'center', 
+    alignItems: 'center',
+    borderWidth: 1
+  }
   
 });

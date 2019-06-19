@@ -30,8 +30,9 @@ const logo_width = 200;
 const logo_height = 200;
 
 //const BASE_URL = "http://localhost:3000";
-const BASE_URL = "http://garagan-meditation.appspot.com";
-axios.defaults.baseURL = "http://garagan-meditation.appspot.com";
+//const BASE_URL = "http://garagan-meditation.appspot.com";
+axios.defaults.baseURL = "http://localhost:3000";
+//axios.defaults.baseURL = "http://garagan-meditation.appspot.com";
 
 
 export default class HomeScreen extends React.Component {
@@ -58,7 +59,7 @@ export default class HomeScreen extends React.Component {
   componentWillMount(){
     //debugger;
 
-    axios.defaults.headers.common['Authorization'] = "Bearer " + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Y2Q0NThmNjViNjE2OTZlZjk1ZGMwMmMiLCJpYXQiOjE1NTk1NzI5MDB9.SbRf-giNfYERV1N9C_N4eB59LVjFpR2H1eUBGqKjUGY';  /// remove later
+    axios.defaults.headers.common['Authorization'] = "Bearer " + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Y2Q0NThmNjViNjE2OTZlZjk1ZGMwMmMiLCJpYXQiOjE1NTc4MDAxMTN9.uKkvJFt5vJ9CkP04_2ZFCs8FaE4AqU5zcMVs3ldX0wg';  /// remove later
     
 
 //      axios({
