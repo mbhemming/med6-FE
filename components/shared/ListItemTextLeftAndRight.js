@@ -4,6 +4,8 @@
 import React from 'react';
 import { Text, View, Image, Dimensions, StyleSheet, Button } from 'react-native';
 
+import colors from './../../assets/colors/colors.js'
+
 //import BlinkView from 'react-native-blink-view';
 
 
@@ -35,8 +37,8 @@ class ListItemTextLeftAndRight extends React.Component {
 
         return(
             <View style={styles.container}>
-                <Text style={{fontSize: 18}} >{this.props.left}</Text>
-                <Text style={{fontSize: 14}} >{this.props.right}</Text>
+                <Text style={{fontSize: 18, color: colors.black}} >{this.props.left}</Text>
+                <Text style={{fontSize: 14, color: colors.black_lighter}} >{this.props.right}</Text>
 
             </View>
         );
@@ -57,7 +59,9 @@ const styles = StyleSheet.create({
     paddingRight: 5,
     paddingLeft: 5,
     borderRadius:3,
-    borderWidth: 1
+    borderWidth: 1,
+    borderColor: colors.white_darker,
+    backgroundColor: colors.white
 },
 
 });

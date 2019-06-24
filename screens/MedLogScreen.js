@@ -5,7 +5,7 @@ import { Text, View, StyleSheet, Dimensions, ScrollView, FlatList } from 'react-
 import axios from 'axios';
 
 import TitleHeader from './../components/shared/TitleHeader.js' 
-import ListItemTextLeftAndRight from './../components/ListItemTextLeftAndRight.js'
+import ListItemTextLeftAndRight from './../components/shared/ListItemTextLeftAndRight.js'
 
 import colors from './../assets/colors/colors.js'
 
@@ -102,6 +102,15 @@ const styles = StyleSheet.create({
     //justifyContent: 'space-around',
     borderBottomWidth:1,
     backgroundColor: colors.black 
+  },
+  questions_scrollable_container: {
+    width: dims.width, 
+    height: dims.height * (2/3), 
+    //flexDirection: 'column', 
+    //flex: 1,
+    //justifyContent: 'space-around',
+    borderBottomWidth:1,
+    backgroundColor: colors.black_lighter 
   },
   
 });

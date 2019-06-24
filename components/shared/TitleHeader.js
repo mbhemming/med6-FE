@@ -25,7 +25,7 @@ export default class TitleHeader extends React.Component {
               <BrandHeader/>
 
               <View style ={styles.text_contain} >
-                <Text style = {{fontSize: fontSize, flex: 1, flexWrap: 'wrap', color: colors.primary}}> {title} </Text>
+                <Text style = {{fontSize: fontSize,flex: 1, flexWrap: 'wrap', color: colors.primary}}> {title} </Text>
               </View>
             </View>
           );

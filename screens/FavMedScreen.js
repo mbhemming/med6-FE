@@ -4,7 +4,7 @@ const axios = require('axios');
 
 //import BrandHeader from './../components/shared/BrandHeader.js' 
 import TitleHeader from './../components/shared/TitleHeader.js' 
-import ListItemTextLeftAndRight from './../components/ListItemTextLeftAndRight.js'
+import ListItemTextLeftAndRight from './../components/shared/ListItemTextLeftAndRight.js'
 
 import { Text } from 'react-native';
 
