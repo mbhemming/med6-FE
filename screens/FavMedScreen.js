@@ -2,9 +2,13 @@ import React from 'react';
 import { View, Dimensions, StyleSheet, FlatList} from 'react-native';
 const axios = require('axios');
 
+import _ from 'lodash';
+
 //import BrandHeader from './../components/shared/BrandHeader.js' 
 import TitleHeader from './../components/shared/TitleHeader.js' 
 import ListItemTextLeftAndRight from './../components/shared/ListItemTextLeftAndRight.js'
+
+import ListScreen from './../components/shared/ListScreen.js'
 
 import { Text } from 'react-native';
 
@@ -21,7 +25,7 @@ export default class FavMedScreen extends React.Component {
     super(props);
     this.state = { 
                   //ds_fav_meds: ds.cloneWithRows([])     // pairs of (_id, med_name)
-                  fav_meds: []
+                  fav_meds_formatted: [] // array of { left: med.name, right: item.duration + " minutes" }
                    };     
   }
 
@@ -32,8 +36,19 @@ export default class FavMedScreen extends React.Component {
     axios.get('/users/me_fav_meds')
     .then((res) => {
       //debugger;
-      this.setState({fav_meds: res.data});
+      var arr = res.data;
 
+      // select only name and n_times from each meditation opbject
+    var fav_meds_formatted = _.map(
+    arr, 
+    function(med) {
+        debugger;
+        return { left: med.name, right: med.duration + " minutes" };
+    }
+    );
+
+      this.setState({fav_meds_formatted: fav_meds_formatted});
+      //debugger;
     // console.log(response.data);
     // console.log(response.status);
     // console.log(response.statusText);
@@ -68,21 +83,12 @@ export default class FavMedScreen extends React.Component {
                      
 
   render() {
-
+      //debugger
       return (
-            <View style = {styles.container}>
-            	<TitleHeader 
-                title = {'Favorite Meditations NEED TO MAKE A ROUTE LATER TO HAVE THIS WORK. USES user MODEL'}
-                fontSize = {18}
-                />
-
-            
-            <FlatList
-              data={this.state.fav_meds}
-              renderItem={({item}) =>  <ListItemTextLeftAndRight left = {item.name} right = {item.duration + " minutes"} />}
-            />
-            </View>
-            
+            <ListScreen 
+              list_data = {this.state.fav_meds_formatted} 
+              title = {"Favorite Meditations"}
+              />       
           );
 
 

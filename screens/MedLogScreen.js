@@ -3,11 +3,10 @@ import { ExpoConfigView } from '@expo/samples';
 import { Text, View, StyleSheet, Dimensions, ScrollView, FlatList } from 'react-native';
 
 import axios from 'axios';
+import _ from 'lodash';
 
-import TitleHeader from './../components/shared/TitleHeader.js' 
-import ListItemTextLeftAndRight from './../components/shared/ListItemTextLeftAndRight.js'
+import ListScreen from './../components/shared/ListScreen.js'
 
-import colors from './../assets/colors/colors.js'
 
 const dims = Dimensions.get("window");
 
@@ -20,7 +19,7 @@ export default class MedLogScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-                  fav_meds: []     // pairs of (med_name, n_times completed)
+                  meds_logged_formatted: [] // array of {left: med_name, right: "Completed " + med.n_times + " times"}
                    };     
   }
 
@@ -29,7 +28,6 @@ export default class MedLogScreen extends React.Component {
     axios.get('/med_logs')
   .then( (res) => {
     
-
     //for each meditation completed, compute a new property
     var arr = res.data;
   
@@ -38,8 +36,17 @@ export default class MedLogScreen extends React.Component {
       //debugger;
       theArr[index].n_times = med.dates_comp.length;
     });
-    // handle success
-    this.setState({fav_meds: arr })
+
+    // select only name and n_times from each meditation opbject
+    var meds_logged_formatted = _.map(
+    arr, 
+    function(med) {
+        return { left: med._med.name, right: "Completed " + med.n_times + " times" };
+    }
+    );
+
+    this.setState({meds_logged_formatted: meds_logged_formatted })
+  
     //debugger;
     console.log(res);
   })
@@ -53,64 +60,17 @@ export default class MedLogScreen extends React.Component {
   });
   }
 
-  _renderRow({item}){
-    debugger;
-    if( item.n_times > 0 ){
-      return(
-        <ListItemTextLeftAndRight left = {item._med.name} right = {"Completed " + item.n_times + " times"} />
-          
-        ); 
-    }
-    else{
-      // If the med was never completed, don't render anything
-      return(
-        <View></View>
-        );
-    }
-           
-  }
-
-
   render() {
     /* Go ahead and delete ExpoConfigView and replace it with your
      * content, we just wanted to give you a quick view of your config */
+     //debugger;
     return (
-    	<View style = {styles.container}>
-    		<TitleHeader title = {'Completed Meditations'} 
-    		fontSize = {20}
-    		/>
-        <ScrollView style={styles.questions_scrollable_container}>
-                        
-                        <FlatList
-              data={this.state.fav_meds}
-              renderItem={this._renderRow     }
-            />
-        </ScrollView>
-
-    	</View>
+    	<ListScreen 
+        list_data = {this.state.meds_logged_formatted} 
+        title = {"History"}
+        />
     	);
   }
 }
 
 
-const styles = StyleSheet.create({
-  container: {
-    width: dims.width, 
-    height: dims.height, 
-    //flexDirection: 'column', 
-    //flex: 1,
-    //justifyContent: 'space-around',
-    borderBottomWidth:1,
-    backgroundColor: colors.black 
-  },
-  questions_scrollable_container: {
-    width: dims.width, 
-    height: dims.height * (2/3), 
-    //flexDirection: 'column', 
-    //flex: 1,
-    //justifyContent: 'space-around',
-    borderBottomWidth:1,
-    backgroundColor: colors.black_lighter 
-  },
-  
-});
