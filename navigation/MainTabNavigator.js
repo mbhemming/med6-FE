@@ -7,10 +7,13 @@ import HomeScreen from '../screens/HomeScreen';
 import HelpScreen from '../screens/HelpScreen';
 //import SettingsScreen from '../screens/SettingsScreen';
 
+
 import JournalScreen from '../screens/JournalScreen';
 import MedLogScreen from '../screens/MedLogScreen';
 import FeedbackScreen from '../screens/FeedbackScreen';
 import FavMedScreen from '../screens/FavMedScreen';
+
+import JournalReadScreen from '../screens/JournalReadScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -36,6 +39,7 @@ HomeStack.navigationOptions = {
 
 const JournalStack = createStackNavigator({
   Journal: JournalScreen,
+  JournalRead: JournalReadScreen
 });
 
 JournalStack.navigationOptions = {

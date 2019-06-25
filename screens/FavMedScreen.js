@@ -6,7 +6,7 @@ import _ from 'lodash';
 
 //import BrandHeader from './../components/shared/BrandHeader.js' 
 import TitleHeader from './../components/shared/TitleHeader.js' 
-import ListItemTextLeftAndRight from './../components/shared/ListItemTextLeftAndRight.js'
+//import ListItemTextLeftAndRight from './../components/shared/ListItemTextLeftAndRight.js'
 
 import ListScreen from './../components/shared/ListScreen.js'
 
@@ -42,7 +42,7 @@ export default class FavMedScreen extends React.Component {
     var fav_meds_formatted = _.map(
     arr, 
     function(med) {
-        debugger;
+        //debugger;
         return { left: med.name, right: med.duration + " minutes" };
     }
     );
@@ -83,7 +83,7 @@ export default class FavMedScreen extends React.Component {
                      
 
   render() {
-      //debugger
+      debugger
       return (
             <ListScreen 
               list_data = {this.state.fav_meds_formatted} 

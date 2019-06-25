@@ -9,7 +9,8 @@ import React from 'react';
 import { Text, View, StyleSheet, Dimensions, ScrollView, FlatList } from 'react-native';
 
 import TitleHeader from './TitleHeader.js' 
-import ListItemTextLeftAndRight from './ListItemTextLeftAndRight.js'
+import ListItemTextLeftAndRight from './ListScreen/ListItemTextLeftAndRight.js'
+
 
 import colors from './../../assets/colors/colors.js'
 
@@ -38,12 +39,32 @@ class ListScreen extends React.Component {
     //             </View>
 
 
+    // nav = {this.props.navigation}
+    _renderRow = ({item}) => {
+    //debugger;
+    const screen_nav_to = this.props.nav_screen_name;
 
-    _renderRow({item}){
-    debugger;
-    return(
-            <ListItemTextLeftAndRight left = {item.left} right = {item.right} />
+    if(screen_nav_to){
+        return(
+            <ListItemTextLeftAndRight 
+                left = {item.left} 
+                right = {item.right} 
+
+                _id_list_item = {item._id_item}
+
+                nav_screen_name = {screen_nav_to}
+                />
         );
+    }
+    else {
+        return(
+            <ListItemTextLeftAndRight 
+                left = {item.left} 
+                right = {item.right} 
+                />
+        );
+    }
+    
     
     // if( item.n_times > 0 ){
     //   return(
