@@ -48,7 +48,7 @@ class ListItemTextLeftAndRight extends React.Component {
 
         // if we have a screen to nav to, then it's a button. If not, just render the text
         if(nav_to){
-            debugger;
+            //debugger;
             return(
             <TouchableHighlight 
                 style={styles.container} 

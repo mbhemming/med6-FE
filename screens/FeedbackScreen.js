@@ -21,12 +21,12 @@ export default class FeedbackScreen extends React.Component {
   }
 
   onPressSubmit(){
-    debugger;
+    //debugger;
     axios.post('/feedbacks', {
     text: this.state.text
   })
   .then(function (response) {
-    debugger;
+    //debugger;
     console.log(response);
   })
   .catch(function (error) {
