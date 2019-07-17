@@ -8,7 +8,7 @@ const colors = {
   black_lighter: '#4c4f53',
 
   interactive: '#5087c0',
-  interactive_1: '#7bafdf',
+  interactive_plus: '#7bafdf',
 
   // your colors
 }

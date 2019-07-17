@@ -33,8 +33,8 @@ const TITLE_H = 60;
 const ALL_BTNS_CNTR_H = 125;
 const BTN_TEXT_COL = colors.black;
 
-const BTN_COLOR_OFF = "yellow";
-const BTN_COLOR_ON = "red";
+const BTN_COLOR_OFF = colors.interactive;
+const BTN_COLOR_ON = colors.interactive_plus;
 
 const btn_labels = ['Love & Kindness',
                    'Favorites', 'Better Sleep', 'Creativity & Inspiration', 'Productivity & Focus', 'Calm & Peace']
@@ -196,10 +196,11 @@ export default class ChooseMedScreen extends React.Component {
 
     return (
            <View style={ globalStyles.total_screen_container }>
-            <View style={ {height: TITLE_H} }>
+            <View style={ styles.title_con }>
               <Text style={ { fontSize: 20, color: colors.primary } }> Choose Your Meditation </Text>
             </View>
-            <View style = { {backgroundColor: 'red', width: C.w, heigh: 160, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', } }>
+
+            <View style = { styles.slider_con }>
               <Text> {this.state.dur_range_0_to_10[0]} min</Text>
               <MultiSlider
               sliderLength = {190}
@@ -211,9 +212,9 @@ export default class ChooseMedScreen extends React.Component {
 
 
 
-            <View style = { {backgroundColor: 'yellow', width: C.w, height: ALL_BTNS_CNTR_H}  }>
+            <View style = { { width: C.w, height: ALL_BTNS_CNTR_H}  }>
               <View style = { styles.btn_row }>
-                <View style = { {backgroundColor: 'red', width: C.w/3, height: ALL_BTNS_CNTR_H/2, justifyContent: 'flex-end', flexDirection: 'column', paddingRight: 5} }>
+                <View style = { { width: C.w/3, height: ALL_BTNS_CNTR_H/2, justifyContent: 'flex-end', flexDirection: 'column', paddingRight: 5} }>
                   <AwesomeButtonRick 
                   backgroundColor = {this.state.btn_color[0]} 
                   onPress={() => this._handle_btn(0)}
@@ -223,7 +224,7 @@ export default class ChooseMedScreen extends React.Component {
                     {btn_labels[0]}
                   </AwesomeButtonRick>
                 </View>
-                <View style = { {backgroundColor: 'red', width: C.w/3, height: ALL_BTNS_CNTR_H/2, justifyContent: 'flex-end', flexDirection: 'column', paddingRight: 5} }>
+                <View style = { {width: C.w/3, height: ALL_BTNS_CNTR_H/2, justifyContent: 'flex-end', flexDirection: 'column', paddingRight: 5} }>
                   <AwesomeButtonRick 
                   backgroundColor = {this.state.btn_color[1]} 
                   onPress={() => this.props.navigation.navigate('FavMed')}
@@ -233,7 +234,7 @@ export default class ChooseMedScreen extends React.Component {
                     {btn_labels[1]}
                   </AwesomeButtonRick>
                 </View>
-                <View style = { {backgroundColor: 'red', width: C.w/3, height: ALL_BTNS_CNTR_H/2, justifyContent: 'flex-end', flexDirection: 'column', paddingRight: 5} }>
+                <View style = { {width: C.w/3, height: ALL_BTNS_CNTR_H/2, justifyContent: 'flex-end', flexDirection: 'column', paddingRight: 5} }>
                   <AwesomeButtonRick 
                   backgroundColor = {this.state.btn_color[2]} 
                   onPress={() => this._handle_btn(2)}
@@ -249,7 +250,7 @@ export default class ChooseMedScreen extends React.Component {
 
 
               <View style = { styles.btn_row }>
-                <View style = { {backgroundColor: 'red', width: C.w/3, height: ALL_BTNS_CNTR_H/2, justifyContent: 'flex-end', flexDirection: 'column', paddingRight: 5} }>
+                <View style = { {width: C.w/3, height: ALL_BTNS_CNTR_H/2, justifyContent: 'flex-end', flexDirection: 'column', paddingRight: 5} }>
                   <AwesomeButtonRick 
                   backgroundColor = {this.state.btn_color[3]} 
                   onPress={() => this._handle_btn(3)}
@@ -259,7 +260,7 @@ export default class ChooseMedScreen extends React.Component {
                     {btn_labels[3]}
                   </AwesomeButtonRick>
                 </View>
-                <View style = { {backgroundColor: 'red', width: C.w/3, height: ALL_BTNS_CNTR_H/2, justifyContent: 'flex-end', flexDirection: 'column', paddingRight: 5} }>
+                <View style = { {width: C.w/3, height: ALL_BTNS_CNTR_H/2, justifyContent: 'flex-end', flexDirection: 'column', paddingRight: 5} }>
                   <AwesomeButtonRick 
                   backgroundColor = {this.state.btn_color[4]} 
                   onPress={() => this._handle_btn(4)}
@@ -269,7 +270,7 @@ export default class ChooseMedScreen extends React.Component {
                     {btn_labels[4]}
                   </AwesomeButtonRick>
                 </View>
-                <View style = { {backgroundColor: 'red', width: C.w/3, height: ALL_BTNS_CNTR_H/2, justifyContent: 'flex-end', flexDirection: 'column', paddingRight: 5} }>
+                <View style = { {width: C.w/3, height: ALL_BTNS_CNTR_H/2, justifyContent: 'flex-end', flexDirection: 'column', paddingRight: 5} }>
                   <AwesomeButtonRick 
                   backgroundColor = {this.state.btn_color[5]} 
                   onPress={() => this._handle_btn(5)}
@@ -302,6 +303,19 @@ export default class ChooseMedScreen extends React.Component {
 
 
 const styles = StyleSheet.create( {
+  title_con: {
+    height: TITLE_H, 
+    justifyContent: 'center', 
+    alignItems: 'center'
+  },
+  slider_con: {
+    backgroundColor: colors.black, 
+    width: C.w, 
+    height: 65, 
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    justifyContent: 'space-between'
+  },
   btn_row: {
     width: C.w,
     height: ALL_BTNS_CNTR_H/2,
