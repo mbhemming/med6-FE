@@ -6,7 +6,10 @@ import axios from "axios";
 
 import TitleHeader from './../components/shared/TitleHeader.js' 
 
-const dims = Dimensions.get("window");
+import colors from './../assets/colors/colors.js';
+import globalStyles from './../assets/styles/globalStyles';
+import C from './../assets/constants';
+
 
 const TEXT_BOX_H = 220;
 
@@ -39,14 +42,15 @@ export default class FeedbackScreen extends React.Component {
      * content, we just wanted to give you a quick view of your config */
      //debugger;
     return (
-    	<View style = {styles.container}>
+    	<View style = {globalStyles.total_screen_container}>
     		<TitleHeader title = {'Feedback: What would you like changed?'} 
     		fontSize = {20}
     		/>
 
+        <View style={ globalStyles.container_all_below_title }>
         <View style={{height: TEXT_BOX_H, paddingLeft: 4, paddingRight: 4, boarderRadius: 5}}>
          <TextInput
-          style={{height: 220, borderColor: 'black', borderWidth: 1, paddingLeft: 4, paddingRight: 4}}
+          style={{height: 220, borderColor: 'black', paddingLeft: 4, paddingRight: 4, backgroundColor: colors.white}}
           onChangeText={(text) => this.setState({text})}
           value={this.state.text}
           multiline = {true}
@@ -56,9 +60,11 @@ export default class FeedbackScreen extends React.Component {
           <Button
             onPress={this.onPressSubmit.bind(this)}
             title="Submit"
-            color="#841584"
+            color={colors.interactive}
             accessibilityLabel="Learn more about this purple button"
             />
+
+            </View>
 
 
     	</View>
@@ -67,13 +73,14 @@ export default class FeedbackScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    width: dims.width, 
-    height: dims.height-5, 
-    //flexDirection: 'column', 
-    //flex: 1,
-    //justifyContent: 'space-around',
-    borderBottomWidth:1
-  },
+  // container: {
+  //   width: C.w, 
+  //   height: C.h, 
+  //   //flexDirection: 'column', 
+  //   //flex: 1,
+  //   //justifyContent: 'space-around',
+  //   borderBottomWidth:1,
+  //   backgroundColor: colors.black
+  // },
   
 });
