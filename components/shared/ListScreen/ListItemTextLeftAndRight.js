@@ -59,8 +59,8 @@ class ListItemTextLeftAndRight extends React.Component {
                 underlayColor = {colors.interactive}
                 >
             <View style={styles.spatial}>
-                <Text style={{fontSize: 18, color: colors.black}} >{this.props.left}</Text>
-                <Text style={{fontSize: 14, color: colors.black_lighter}} >{this.props.right}</Text>
+                <Text style={{fontSize: 18, color: colors.interactive}} >{this.props.left}</Text>
+                <Text style={{fontSize: 14, color: colors.interactive_plus}} >{this.props.right}</Text>
 
             </View>
             </TouchableHighlight>
