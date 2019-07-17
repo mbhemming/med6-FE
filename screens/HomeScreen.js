@@ -119,11 +119,20 @@ export default class HomeScreen extends React.Component {
     const {navigate} = this.props.navigation
 
     return (
+        <View>
         <Button onPress={ () => {navigate('ChooseMed'); } }
-                  title={ " message." }
+                  title={ " message.sss" }
                   color={ colors.interactive }
                   width={ C.w / 2 }
                   height={ 50 } />
+        <Button onPress={ () => {navigate('Login'); } }
+                  title={ "login screen" }
+                  color={ colors.interactive }
+                  width={ C.w / 2 }
+                  height={ 50 } />
+
+
+        </View>
     );
   }
 

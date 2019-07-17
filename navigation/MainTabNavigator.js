@@ -17,10 +17,14 @@ import ChooseMedScreen from '../screens/ChooseMedScreen';
 
 import JournalReadScreen from '../screens/JournalReadScreen';
 
+import LoginScreen from '../screens/login/LoginScreen';
+
 const HomeStack = createStackNavigator( {
   Home: HomeScreen,
   ChooseMed: ChooseMedScreen,
-  FavMed: FavMedScreen
+  FavMed: FavMedScreen,
+
+  Login: LoginScreen,        /////////        MOVE TO IT'S OWN NAVIGATOR LATER
 } );
 
 HomeStack.navigationOptions = {
