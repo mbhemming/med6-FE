@@ -1,5 +1,11 @@
+/*
+  TODO:
+    -move the axios call to be in the constructor. It only needs to happen once
+    -when you click, you should you navigate to the actual meditations?
+*/
+
 import React from 'react';
-import { View, Dimensions, StyleSheet, FlatList} from 'react-native';
+import { View, Dimensions, StyleSheet, FlatList, Text} from 'react-native';
 const axios = require('axios');
 
 import _ from 'lodash';
@@ -10,11 +16,10 @@ import TitleHeader from './../components/shared/TitleHeader.js'
 
 import ListScreen from './../components/shared/ListScreen.js'
 
-import { Text } from 'react-native';
+import C from './../assets/constants';
+
 
 //const ds = new ListView.DataSource({ rowHasChanged: (row1, row2) => row1 !== row2 });
-
-const dims = Dimensions.get("window");
 
 export default class FavMedScreen extends React.Component {
   static navigationOptions = {
@@ -98,8 +103,8 @@ export default class FavMedScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    width: dims.width, 
-    height: dims.height, 
+    width: C.w, 
+    height: C.h, 
     //flexDirection: 'column', 
     //flex: 1,
     //justifyContent: 'space-around',

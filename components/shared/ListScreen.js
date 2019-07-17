@@ -23,10 +23,6 @@ import ListItemTextLeftAndRight from './ListScreen/ListItemTextLeftAndRight.js';
 import colors from './../../assets/colors/colors.js';
 import globalStyles from './../../assets/styles/globalStyles';
 
-//import BlinkView from 'react-native-blink-view';
-
-
-const dims = Dimensions.get( 'window' );
 
 const row_height = 40;
 

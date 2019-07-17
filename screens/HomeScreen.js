@@ -18,13 +18,15 @@ import axios from "axios";
 import { MonoText } from "../components/StyledText";
 
 
-import LoginBtn from "./LoginBtn";
+import Button from './../components/shared/Button.js'
+
+import colors from './../assets/colors/colors.js';
+import globalStyles from './../assets/styles/globalStyles';
+import C from './../assets/constants';
 
 
 
-const dims = Dimensions.get("window");
-
-const logo_container_height = dims.height / 2.5;
+const logo_container_height = C.h / 2.5;
 
 const logo_width = 200;
 const logo_height = 200;
@@ -112,20 +114,20 @@ export default class HomeScreen extends React.Component {
 
   }
 
+
   render() {
+    const {navigate} = this.props.navigation
+
     return (
-        <Image
-          style={{ width: logo_width, height: logo_height }}
-          source={require("../assets/images/sherlock-logo.jpg")}
-        />
+        <Button onPress={ () => {navigate('ChooseMed'); } }
+                  title={ " message." }
+                  color={ colors.interactive }
+                  width={ C.w / 2 }
+                  height={ 50 } />
     );
   }
 
-  _moveToGame(game) {
-      //console.log("RRRRRRRRR")
-      //console.log(game)
-    this.props.navigation.navigate('GameScreen',    game);
-  }
+  
 
 }
 
@@ -135,7 +137,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff"
   },
   logo_container: {
-    width: dims.width,
+    width: C.w,
     height: logo_container_height,
     backgroundColor: "#fff",
 

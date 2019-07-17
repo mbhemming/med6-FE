@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
@@ -12,11 +13,14 @@ import JournalScreen from '../screens/JournalScreen';
 import MedLogScreen from '../screens/MedLogScreen';
 import FeedbackScreen from '../screens/FeedbackScreen';
 import FavMedScreen from '../screens/FavMedScreen';
+import ChooseMedScreen from '../screens/ChooseMedScreen';
 
 import JournalReadScreen from '../screens/JournalReadScreen';
 
 const HomeStack = createStackNavigator( {
   Home: HomeScreen,
+  ChooseMed: ChooseMedScreen,
+  FavMed: FavMedScreen
 } );
 
 HomeStack.navigationOptions = {
