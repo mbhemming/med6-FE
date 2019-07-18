@@ -126,7 +126,7 @@ export default class HomeScreen extends React.Component {
                   width={ C.w / 2 }
                   height={ 50 } />
         <Button onPress={ () => {navigate('Login'); } }
-                  title={ "login screen" }
+                  title={ "login/signup/edit profile -  screen" }
                   color={ colors.interactive }
                   width={ C.w / 2 }
                   height={ 50 } />
