@@ -18,20 +18,23 @@ import axios from "axios";
 import { MonoText } from "../components/StyledText";
 
 
-import LoginBtn from "./LoginBtn";
+import Button from './../components/shared/Button.js'
+
+import colors from './../assets/colors/colors.js';
+import globalStyles from './../assets/styles/globalStyles';
+import C from './../assets/constants';
 
 
 
-const dims = Dimensions.get("window");
-
-const logo_container_height = dims.height / 2.5;
+const logo_container_height = C.h / 2.5;
 
 const logo_width = 200;
 const logo_height = 200;
 
 //const BASE_URL = "http://localhost:3000";
-const BASE_URL = "http://garagan-meditation.appspot.com";
-axios.defaults.baseURL = "http://garagan-meditation.appspot.com";
+//const BASE_URL = "http://garagan-meditation.appspot.com";
+axios.defaults.baseURL = "http://localhost:3000";
+//axios.defaults.baseURL = "http://garagan-meditation.appspot.com";
 
 
 export default class HomeScreen extends React.Component {
@@ -58,7 +61,7 @@ export default class HomeScreen extends React.Component {
   componentWillMount(){
     //debugger;
 
-    axios.defaults.headers.common['Authorization'] = "Bearer " + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Y2Q0NThmNjViNjE2OTZlZjk1ZGMwMmMiLCJpYXQiOjE1NTk1NzI5MDB9.SbRf-giNfYERV1N9C_N4eB59LVjFpR2H1eUBGqKjUGY';  /// remove later
+    axios.defaults.headers.common['Authorization'] = "Bearer " + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Y2Q0NThmNjViNjE2OTZlZjk1ZGMwMmMiLCJpYXQiOjE1NTc4MDAxMTN9.uKkvJFt5vJ9CkP04_2ZFCs8FaE4AqU5zcMVs3ldX0wg';  /// remove later
     
 
 //      axios({
@@ -111,20 +114,29 @@ export default class HomeScreen extends React.Component {
 
   }
 
+
   render() {
+    const {navigate} = this.props.navigation
+
     return (
-        <Image
-          style={{ width: logo_width, height: logo_height }}
-          source={require("../assets/images/sherlock-logo.jpg")}
-        />
+        <View>
+        <Button onPress={ () => {navigate('ChooseMed'); } }
+                  title={ " message.sss" }
+                  color={ colors.interactive }
+                  width={ C.w / 2 }
+                  height={ 50 } />
+        <Button onPress={ () => {navigate('Login'); } }
+                  title={ "login/signup/edit profile -  screen" }
+                  color={ colors.interactive }
+                  width={ C.w / 2 }
+                  height={ 50 } />
+
+
+        </View>
     );
   }
 
-  _moveToGame(game) {
-      //console.log("RRRRRRRRR")
-      //console.log(game)
-    this.props.navigation.navigate('GameScreen',    game);
-  }
+  
 
 }
 
@@ -134,7 +146,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff"
   },
   logo_container: {
-    width: dims.width,
+    width: C.w,
     height: logo_container_height,
     backgroundColor: "#fff",
 
