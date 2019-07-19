@@ -8,7 +8,12 @@ const C = {
   w: Dimensions.get( 'window' ).width,
   h: Dimensions.get( 'window' ).height,
 
-  tab_bar_height: 112/2
+  tab_bar_height: 112/2,
+
+  //
+  paths:{
+  	screens_components: './../components/'
+  }
 
 }
 

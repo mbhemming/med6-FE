@@ -13,6 +13,7 @@ import axios from "axios";
 
 import TitleHeader from './../components/shared/TitleHeader.js' 
 import TabBarHeightView from './../components/shared/TabBarHeightView' 
+import DismissKeyboard from './../components/shared/DismissKeyboard'
 
 import colors from './../assets/colors/colors.js';
 import globalStyles from './../assets/styles/globalStyles';
@@ -74,7 +75,7 @@ export default class FeedbackScreen extends React.Component {
                 keyboardVerticalOffset={44 + this.state.statusBarHeight}
             >
       <SafeAreaView style={globalStyles.safe_area}>
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <DismissKeyboard>
       <View style = {globalStyles.total_screen_container}>
         <TitleHeader title = {'Feedback: What would you like changed?'} 
         fontSize = {20}
@@ -105,7 +106,7 @@ export default class FeedbackScreen extends React.Component {
 
 
       </View>
-      </TouchableWithoutFeedback>
+      </DismissKeyboard>
       </SafeAreaView>
       </KeyboardAvoidingView>
     	);
