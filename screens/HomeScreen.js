@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
   View,
   Dimensions,
-  ListView
+  ListView,
+  SafeAreaView
 } from "react-native";
 
 import {SecureStore} from 'expo';
@@ -120,6 +121,7 @@ export default class HomeScreen extends React.Component {
 
     return (
         <View>
+          <SafeAreaView style={globalStyles.safe_area}>
         <Button onPress={ () => {navigate('ChooseMed'); } }
                   title={ " message.sss" }
                   color={ colors.interactive }
@@ -137,7 +139,7 @@ export default class HomeScreen extends React.Component {
                   width={ C.w / 2 }
                   height={ 50 } />
 
-
+        </SafeAreaView>
         </View>
     );
   }

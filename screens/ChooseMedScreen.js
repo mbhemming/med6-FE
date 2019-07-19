@@ -14,7 +14,7 @@ speical notes:
 import React from 'react';
 import { ExpoConfigView } from '@expo/samples';
 
-import { Text, View, StyleSheet, ScrollView, FlatList} from 'react-native';
+import { Text, View, StyleSheet, ScrollView, FlatList, SafeAreaView} from 'react-native';
 import axios from 'axios';
 import _ from 'lodash';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
@@ -196,6 +196,7 @@ export default class ChooseMedScreen extends React.Component {
 
     return (
            <View style={ globalStyles.total_screen_container }>
+           <SafeAreaView style={globalStyles.safe_area}>
             <View style={ styles.title_con }>
               <Text style={ { fontSize: 20, color: colors.primary } }> Choose Your Meditation </Text>
             </View>
@@ -295,7 +296,7 @@ export default class ChooseMedScreen extends React.Component {
 
 
 
-
+              </SafeAreaView>
           </View>
           );
   }

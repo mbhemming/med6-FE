@@ -7,7 +7,7 @@ CODE INSPIRATIONS:
 
 import React from 'react';
 import { ExpoConfigView } from '@expo/samples';
-import { Text, View, KeyboardAvoidingView, Dimensions, StyleSheet, TextInput, Button, Platform, SafeAreaView, TouchableWithoutFeedback, Keyboard, NativeModules, StatusBarIOS} from 'react-native';
+import { Text, View, KeyboardAvoidingView, Dimensions, StyleSheet, TextInput, Button, Platform, SafeAreaView, Keyboard, NativeModules, StatusBarIOS} from 'react-native';
 
 import axios from "axios";
 
