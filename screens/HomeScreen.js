@@ -131,6 +131,12 @@ export default class HomeScreen extends React.Component {
                   width={ C.w / 2 }
                   height={ 50 } />
 
+        <Button onPress={ () => {navigate('Feedback'); } }
+                  title={ "Feedback -  screen" }
+                  color={ colors.interactive }
+                  width={ C.w / 2 }
+                  height={ 50 } />
+
 
         </View>
     );

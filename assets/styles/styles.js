@@ -1,12 +1,14 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
-const dims = Dimensions.get("window");
+import C from './../constants';
+
 
 
 const styles = StyleSheet.create({
+  
   container: {
-    width: dims.width, 
-    height: dims.height, 
+    width: C.w, 
+    height: C.h, 
     //flexDirection: 'column', 
     //flex: 1,
     //justifyContent: 'space-around',
@@ -15,8 +17,8 @@ const styles = StyleSheet.create({
   },
   
   questions_scrollable_container: {
-    width: dims.width, 
-    height: dims.height * (2/3), 
+    width: C.w, 
+    height: C.h * (2/3), 
     //flexDirection: 'column', 
     //flex: 1,
     //justifyContent: 'space-around',
