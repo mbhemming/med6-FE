@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { View, Button, StyleSheet } from 'react-native';
+import { View, Button, StyleSheet, TouchableOpacity, Text } from 'react-native';
 
 import C from './../../assets/constants';
 import colors from './../../assets/colors/colors';
@@ -18,7 +18,18 @@ export default class Button2 extends React.Component {
 
   render() {
 
-    return (
+    if(this.props.fontSize){
+      return (
+
+    <TouchableOpacity >
+      <Text style={{ fontSize: this.props.fontSize, color: this.props.color }}>
+        { this.props.title }
+      </Text>
+    </TouchableOpacity>
+    );
+    }
+    else{
+        return (
 
     <View style={ { width: this.props.width, height: this.props.height } }>
       <Button onPress={ this.props.onPress }
@@ -26,6 +37,9 @@ export default class Button2 extends React.Component {
               color={ this.props.color } />
     </View>
     );
+    }
+
+    
 
 
   }

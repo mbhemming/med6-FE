@@ -142,6 +142,53 @@ export default class LoginPlus extends React.Component {
 
 };
 
+renderLeftRightButtons = function(){
+
+    //const {button_title_left, button_title_right, onPress_left, onPress_right}
+
+    if(this.props.button_title_left && this.props.button_title_right) {
+        return (
+            <View style = {{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <Button 
+            title = {this.props.button_title_left}
+            onPress = {this.props.onPress_left}
+            color = {this.props.color_left}
+            />
+            <Button 
+            title = {this.props.button_title_right}
+            onPress = {this.props.onPress_right}
+            fontSize = {this.props.fontSize}
+            color = {this.props.color_right}
+            />
+          </View>
+        )
+    }
+    else if(this.props.button_title_left) {
+        return (
+            <View style = {{flexDirection: 'row', justifyContent: 'flex-start'}}>
+            <Button 
+            title = {this.props.button_title_left}
+            onPress = {this.props.onPress_left}
+            color = {this.props.color_left}
+            />
+          </View>
+        )
+    }
+    else if(this.props.button_title_right) {
+        return (
+             <View style = {{flexDirection: 'row', justifyContent: 'flex-end'}}>
+            <Button 
+            title = {this.props.button_title_right}
+            onPress = {this.props.onPress_right}
+            fontSize = {this.props.fontSize}
+            color = {this.props.color_right}
+            />
+          </View>
+        )
+    }
+    
+};
+
   render() {
     return (
     <SafeAreaView style={globalStyles.safe_area}>
@@ -155,11 +202,15 @@ export default class LoginPlus extends React.Component {
           <Animated.Image source={logo} style={[styles.logo, { height: this.imageHeight, width: this.imageHeight }]} />
         </View>
 
-        {this.renderTextInputs()}
-
+        <View>
+          {this.renderTextInputs()}
+          {this.renderLeftRightButtons()}
+          
+        </View>
         <Button 
-          title = {this.props.button_title}
-          onPress = {this.props.onPress}
+          title = {this.props.button_title_center}
+          onPress = {this.props.onPress_center}
+          color_center = {this.props.color_center}
           />
 
         <TabBarHeightView color = {colors.black_lighter}/>
