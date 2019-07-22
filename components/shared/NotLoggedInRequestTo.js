@@ -51,7 +51,11 @@ class NotLoggedInRequestTo extends React.Component {
              </View>
             <View style={{ flex: 10/100, flexDirection: 'row', justifyContent: 'space-between'}}>
               <Button title="Back" onPress={this.props.onPressBack} />
-              <Button title="Sign Up" onPress={() => {} }/>
+              <Button title="Sign Up" onPress={() => {
+                  navigate("SignUp");
+                  this.props.change_modal_visible();
+                }
+              } />
               <Button title="Login" onPress={() => {
                   navigate("Login");
                   this.props.change_modal_visible();
