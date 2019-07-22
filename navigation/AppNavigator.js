@@ -5,6 +5,7 @@ import MainTabNavigator from './MainTabNavigator';
 
 import FavMedScreen from '../screens/FavMedScreen';
 import FeedbackScreen from '../screens/FeedbackScreen';
+import ChooseMedScreen from '../screens/ChooseMedScreen';
 
 // Screens similar to login
 import LoginScreen from '../screens/login/LoginScreen';
@@ -21,9 +22,9 @@ export default createAppContainer( createSwitchNavigator( {
   // IN DEVELOPMENT
   //FavMed: FavMedScreen,
   //Feedback: FeedbackScreen,
+	// Login: LoginScreen,
+	//ChooseMed: ChooseMedScreen,
 
-
-  Login: LoginScreen,
   Main: MainTabNavigator,
 
   

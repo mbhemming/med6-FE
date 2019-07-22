@@ -141,6 +141,8 @@ export default class FavMedScreen extends React.Component {
       return (
             <View style={{flex: 1}}>
         <NotLoggedInRequestTo
+          instructions = {"Please login to use this feature."}  
+
           modalVisible = {this.state.modalVisible}
           onPressBack = {this.pressBack}
           change_modal_visible = {this.change_modal_visible}
