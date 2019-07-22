@@ -12,7 +12,7 @@ const C = {
 
   //
   paths:{
-  	screens_components: './../components/'
+  	screens_to_components: './../components/'
   }
 
 }

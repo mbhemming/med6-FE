@@ -3,8 +3,12 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
 
-import LoginScreen from '../screens/login/LoginScreen';
+import FavMedScreen from '../screens/FavMedScreen';
 import FeedbackScreen from '../screens/FeedbackScreen';
+
+// Screens similar to login
+import LoginScreen from '../screens/login/LoginScreen';
+
 //import StackNavigator from './StackNavigator';
 
 
@@ -14,9 +18,14 @@ export default createAppContainer( createSwitchNavigator( {
   // You could add another route here for authentication.
   // Read more at https://reactnavigation.org/docs/en/auth-flow.html
   
+  // IN DEVELOPMENT
+  //FavMed: FavMedScreen,
+  //Feedback: FeedbackScreen,
+
+
   Login: LoginScreen,
   Main: MainTabNavigator,
 
-  Feedback: FeedbackScreen,
+  
 
 } ) );

@@ -89,6 +89,9 @@ FeedbackStack.navigationOptions = {
 
 const FavMedStack = createStackNavigator( {
   FavMed: FavMedScreen,
+  Home: HomeScreen,
+  Login: LoginScreen
+
 } );
 
 FavMedStack.navigationOptions = {
