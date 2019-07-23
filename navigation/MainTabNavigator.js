@@ -14,6 +14,7 @@ import MedLogScreen from '../screens/MedLogScreen';
 import FeedbackScreen from '../screens/FeedbackScreen';
 import FavMedScreen from '../screens/FavMedScreen';
 import ChooseMedScreen from '../screens/ChooseMedScreen';
+import PlayMedScreen from '../screens/PlayMedScreen';
 
 import JournalReadScreen from '../screens/JournalReadScreen';
 
@@ -23,6 +24,7 @@ import SignUpScreen from '../screens/login/SignUpScreen';
 const HomeStack = createStackNavigator( {
   Home: HomeScreen,
   ChooseMed: ChooseMedScreen,
+  PlayMed: PlayMedScreen,
   FavMed: FavMedScreen,
 
   Login: LoginScreen,

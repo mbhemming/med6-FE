@@ -23,7 +23,7 @@ export default createAppContainer( createSwitchNavigator( {
   //FavMed: FavMedScreen,
   //Feedback: FeedbackScreen,
 	// Login: LoginScreen,
-	//ChooseMed: ChooseMedScreen,
+	ChooseMed: ChooseMedScreen,
 
   Main: MainTabNavigator,
 

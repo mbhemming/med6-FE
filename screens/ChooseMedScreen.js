@@ -23,6 +23,7 @@ import Button from 'react-native-button';
 import AwesomeButtonRick from 'react-native-really-awesome-button/src/themes/rick';
 
 import ListScreen from './../components/shared/ListScreen.js'
+import ListItemTextLeftAndRight from './../components/shared/ListScreen/ListItemTextLeftAndRight'
 
 import colors from './../assets/colors/colors.js';
 import globalStyles from './../assets/styles/globalStyles';
@@ -51,46 +52,46 @@ export default class ChooseMedScreen extends React.Component {
 
 
 
-    //debugger;
-    axios.get('/meds')
-    .then((res) => {
-      //debugger;
-      var arr = res.data;
+    // //debugger;
+    // axios.get('/meds')
+    // .then((res) => {
+    //   //debugger;
+    //   var arr = res.data;
 
-      // select only name and n_times from each meditation opbject
-    var meds_formatted = _.map(
-    arr, 
-    function(med) {
-        //debugger;
-        return { 
-            topics: med.topics, 
-            _id: med._id, 
-            name: med.name,  
-            duration: med.duration,
+    //   // select only name and n_times from each meditation opbject
+    // var meds_formatted = _.map(
+    // arr, 
+    // function(med) {
+    //     //debugger;
+    //     return { 
+    //         topics: med.topics, 
+    //         _id: med._id, 
+    //         name: med.name,  
+    //         duration: med.duration,
 
-            left: med.name,
-            right: med.duration
+    //         left: med.name,
+    //         right: med.duration
 
-          };
-    }
-    );
+    //       };
+    // }
+    // );
 
-      //save one copy that will not be mutated(filtered)
-      //keep another copy to be the current results from the query
-      this.setState({meds_formatted_and_filtered: meds_formatted});
-      this.setState({meds_formatted: meds_formatted});
-      //all_meds = meds_formatted;
+    //   //save one copy that will not be mutated(filtered)
+    //   //keep another copy to be the current results from the query
+    //   this.setState({meds_formatted_and_filtered: meds_formatted});
+    //   this.setState({meds_formatted: meds_formatted});
+    //   //all_meds = meds_formatted;
 
-      //debugger;
-    // console.log(response.data);
-    // console.log(response.status);
-    // console.log(response.statusText);
-    // console.log(response.headers);
-    // console.log(response.config);
-    })
-    .catch((e) => {
-      //debugger;
-    })
+    //   //debugger;
+    // // console.log(response.data);
+    // // console.log(response.status);
+    // // console.log(response.statusText);
+    // // console.log(response.headers);
+    // // console.log(response.config);
+    // })
+    // .catch((e) => {
+    //   //debugger;
+    // })
 
 
 
@@ -103,7 +104,6 @@ export default class ChooseMedScreen extends React.Component {
                   set_of_topics: [],   //these can be mood etc. only 
 
                   meds_formatted: [], // array of { left: med.name, right: item.duration + " minutes" }
-                  meds_formatted_and_filtered: [],
 
                   btn_color: [BTN_COLOR_OFF,BTN_COLOR_OFF,BTN_COLOR_OFF,BTN_COLOR_OFF,BTN_COLOR_OFF,BTN_COLOR_OFF],
 
@@ -119,21 +119,21 @@ export default class ChooseMedScreen extends React.Component {
     // //this.setState({fav_meds: [{key: 'a'}, {key: 'zzz'}, {key: 'a'}, {key: 'zzz'}]});
 
     //debugger;
-    axios.get('/journals')
+    axios.post('/meds_query', {t_low: 10, t_high: 16, topics: ["t1", "t5"]})
     .then((res) => {
       //debugger;
       var arr = res.data;
 
       // select only name and n_times from each meditation opbject
-    var journals_formatted = _.map(
+    var meds_formatted = _.map(
     arr, 
     function(j) {
         //debugger;
-        return { left: j.date, right: j.title, _id_item: j._id };
+        return { left: j.name, right: j.duration, _id_item: j._id };
     }
     );
       //debugger;
-      this.setState({journals_formatted: journals_formatted});
+      this.setState({meds_formatted: meds_formatted});
       //debugger;
     })
     .catch((e) => {
@@ -168,24 +168,15 @@ export default class ChooseMedScreen extends React.Component {
   }
 
   _renderRow = ({item}) => {
-    // //debugger;
-    // const screen_nav_to = this.props.nav_screen_name;
-
-    // if ( screen_nav_to ) {
-    //   return (
-    //   <ListItemTextLeftAndRight left={ item.left }
-    //                             right={ item.right }
-    //                             _id_list_item={ item._id_item }
-    //                             nav_screen_name={ screen_nav_to } />
-    //   );
-    // } else {
-    //   return (
-    //   <ListItemTextLeftAndRight left={ item.left } right={ item.right } />
-    //   );
-    // }
-
-    return(<Text> {item.name} </Text>)
-  }
+    //debugger;
+    
+      return (
+      <ListItemTextLeftAndRight left={ item.left }
+                                right={ item.right }
+                                _id_list_item={ item._id_item }
+                                nav_screen_name={ "PlayMed" } />
+      );
+    }
 
   //nav = {this.props.navigation.navigate}
   render() {
