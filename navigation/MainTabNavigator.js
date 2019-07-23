@@ -14,17 +14,21 @@ import MedLogScreen from '../screens/MedLogScreen';
 import FeedbackScreen from '../screens/FeedbackScreen';
 import FavMedScreen from '../screens/FavMedScreen';
 import ChooseMedScreen from '../screens/ChooseMedScreen';
+import PlayMedScreen from '../screens/PlayMedScreen';
 
 import JournalReadScreen from '../screens/JournalReadScreen';
 
 import LoginScreen from '../screens/login/LoginScreen';
+import SignUpScreen from '../screens/login/SignUpScreen';
 
 const HomeStack = createStackNavigator( {
   Home: HomeScreen,
   ChooseMed: ChooseMedScreen,
+  PlayMed: PlayMedScreen,
   FavMed: FavMedScreen,
 
-  Login: LoginScreen,        /////////        MOVE TO IT'S OWN NAVIGATOR LATER
+  Login: LoginScreen,
+  SignUp: SignUpScreen
 } );
 
 HomeStack.navigationOptions = {
@@ -43,7 +47,10 @@ HomeStack.navigationOptions = {
 
 const JournalStack = createStackNavigator( {
   Journal: JournalScreen,
-  JournalRead: JournalReadScreen
+  JournalRead: JournalReadScreen,
+
+  Login: LoginScreen,
+  SignUp: SignUpScreen
 } );
 
 JournalStack.navigationOptions = {
@@ -59,6 +66,9 @@ JournalStack.navigationOptions = {
 
 const MedLogStack = createStackNavigator( {
   MedLog: MedLogScreen,
+
+  Login: LoginScreen,
+  SignUp: SignUpScreen
 } );
 
 MedLogStack.navigationOptions = {
@@ -74,6 +84,9 @@ MedLogStack.navigationOptions = {
 
 const FeedbackStack = createStackNavigator( {
   Feedback: FeedbackScreen,
+
+  Login: LoginScreen,
+  SignUp: SignUpScreen
 } );
 
 FeedbackStack.navigationOptions = {
@@ -89,6 +102,11 @@ FeedbackStack.navigationOptions = {
 
 const FavMedStack = createStackNavigator( {
   FavMed: FavMedScreen,
+  Home: HomeScreen,
+  
+  Login: LoginScreen,
+  SignUp: SignUpScreen
+
 } );
 
 FavMedStack.navigationOptions = {

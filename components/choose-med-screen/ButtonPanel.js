@@ -6,7 +6,7 @@ import C from './../../assets/constants';
 import colors from './../../assets/colors/colors';
 
 
-export default class Button2 extends React.Component {
+export default class ButtonPanel extends React.Component {
 
   constructor( props ) {
     super( props );
